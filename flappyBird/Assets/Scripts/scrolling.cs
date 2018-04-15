@@ -5,7 +5,7 @@ using UnityEngine;
 public class scrolling : MonoBehaviour
 {
 	public Rigidbody2D cuerpo2D;
-	 float velocidadDesplazamiento = -1.5f;
+	public float velocidadDesplazamiento = -1.5f;
 
 	// Use this for initialization
 	void Start ()

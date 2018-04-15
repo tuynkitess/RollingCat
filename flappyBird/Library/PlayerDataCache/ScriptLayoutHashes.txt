@@ -78,6 +78,7 @@ c63db43c730fa2cbb8ca07de15898cb6 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+13c725d1c32c50159c9a61073a35e238 Assembly-CSharp.dll:.scrolling
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 dbc29a6f2739d277c10da432d73adb6d UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -114,6 +115,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
+4a1ae886c9fbe458e49eaf8a967e12dc Assembly-CSharp.dll:.RepetirFondos
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.camara
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -141,6 +143,6 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 075ef63a86287b3ee8bd09785ef3ea6d Assembly-CSharp.dll:.pajaro
-3f76245cce41991e01216ce73b211dae Assembly-CSharp.dll:.RepetidorFondos
-372d06495d4a4f25d2a17fdc9f992c69 Assembly-CSharp.dll:.scrolling
-4a1ae886c9fbe458e49eaf8a967e12dc Assembly-CSharp.dll:.RepetirFondos
+fec54fb2abb769144d3936b164501318 Assembly-CSharp.dll:.scrollNubes
+fff9780916456a77061acb4c790eaa2a Assembly-CSharp.dll:.creadorAleatorioDeNubes
+bc8501ee0355af31b163719031df6a83 Assembly-CSharp.dll:.darVuelta
