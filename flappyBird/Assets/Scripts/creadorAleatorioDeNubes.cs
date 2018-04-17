@@ -41,10 +41,10 @@ public class creadorAleatorioDeNubes : MonoBehaviour
 
 	void comprobarAntesDePonerNube ()
 	{
-		if (tiempoDeGeneracionDeNubes <= 0 && nubesActivasActualmente < 3f) {
+		if (tiempoDeGeneracionDeNubes <= 0 && nubesActivasActualmente < nubesActivasMaximas) {
 
 			ponerNube ();
-			tiempoDeGeneracionDeNubes = 3f;
+			tiempoDeGeneracionDeNubes = 2f;
 
 		}
 	}

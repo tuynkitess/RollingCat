@@ -29,16 +29,7 @@ public class pajaro : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		/*
-            if (Input.GetKey (KeyCode.UpArrow)) 
-            {
-                transform.Translate(Vector2.up * 15 * Time.deltaTime);
-            }
-            if (Input.GetKey (KeyCode.DownArrow)) 
-            {
-                transform.Translate(Vector2.down * 15 * Time.deltaTime);
-            }*/
-
+		
 		if (Input.GetMouseButtonDown (0)) {
 			cuerpo2D.velocity = Vector3.zero;
 			//cuerpo2D.transform.Rotate (Vector3.forward * 20f);
@@ -50,8 +41,16 @@ public class pajaro : MonoBehaviour
 
 	}
 
-	void OnTriggerEnted2D (Collider2D colisionador)
+	void OnCollisionEnter2D(Collision2D colisionador)
 	{
-		
+		// Zero out the bird's velocity
+		cuerpo2D.velocity = Vector2.zero;
+		// If the bird collides with something set it to dead...
+		//isDead = true;
+		//...tell the Animator about it...
+		//anim.SetTrigger ("Die");
+		//...and tell the game control about it.
+		//GameControl.instance.BirdDied ();
 	}
+
 }
