@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class pajaro : MonoBehaviour
 {
-	// Velocidad a la que se desplaza la nave (medido en u/s)
+	/*// Velocidad a la que se desplaza la nave (medido en u/s)
 	private float velocidad = 20f;
 	// Fuerza de lanzamiento del disparo
-	private float fuerza = 0.5f;
+	private float fuerza = 0.5f;*/
 
 	public Rigidbody2D cuerpo2D;
+	public Animator animador;
+	public float tiempoAnim = 0.5f;
+	public AudioSource auidoVolar;
+
 	public float tapForce = 200;
-	public float tiltSmooth = 1;
+	public float tiltSmooth = 0.1f;
 	public Vector3 startPos;
 
 	Quaternion downRotation;
@@ -24,21 +28,31 @@ public class pajaro : MonoBehaviour
 		downRotation = Quaternion.Euler (0, 0, -35);
 		forwardRotation = Quaternion.Euler (0, 0, 35);
 
+		animador = GetComponent<Animator> ();
+		animador.SetTrigger ("Normal");
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		
+		//tap para que suba
 		if (Input.GetMouseButtonDown (0)) {
 			cuerpo2D.velocity = Vector3.zero;
 			//cuerpo2D.transform.Rotate (Vector3.forward * 20f);
 			transform.rotation = forwardRotation;
 			cuerpo2D.AddForce (Vector2.up * tapForce, ForceMode2D.Force);
+			animador.SetTrigger ("Impulso");
+			auidoVolar.Play();
 		}
 
 		transform.rotation = Quaternion.Lerp (transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
 
+		//volver a poner el gato normal
+		tiempoAnim -= Time.fixedDeltaTime;
+		if(tiempoAnim < 0 ){ 
+			animador.SetTrigger ("Normal");
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D colisionador)
