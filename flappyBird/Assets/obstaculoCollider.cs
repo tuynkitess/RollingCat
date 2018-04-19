@@ -5,6 +5,8 @@ using UnityEngine;
 public class obstaculoCollider : MonoBehaviour {
 
 	public BoxCollider2D caja;
+	int controlSoloUno = 0;
+	int score = 1;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,11 +19,13 @@ public class obstaculoCollider : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.GetComponent<pajaro>() != null)
+		if(other.GetComponent<pajaro>() != null && controlSoloUno ==0)
 		{
 			//If the bird hits the trigger collider in between the columns then
 			//tell the game control that the bird scored.
 			controladorJuego.instancia.scored();
+			controlSoloUno +=1;
+
 		}
 	}
 

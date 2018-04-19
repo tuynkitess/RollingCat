@@ -5,6 +5,8 @@ using UnityEngine;
 public class creadoraDeColumnas : MonoBehaviour
 {
 
+    public static creadoraDeColumnas instancia;
+
 	public GameObject columna;
 	List<GameObject> columnasGuardadas;
 
@@ -19,9 +21,15 @@ public class creadoraDeColumnas : MonoBehaviour
 	public float alturaMaxima = 3.5f;
 	public float alturaMinima = 0;
 
+    public Rigidbody2D columna2d;
+
 	// Use this for initialization
 	void Start ()
 	{
+        if (instancia == null)
+        {
+            instancia = this;
+        }
 		//comodidad a la hora de probar velocidades
 		tiempoDeGeneracionDeColumnas = tiempoFijoDeGeneracionDeColumnas;
 
@@ -70,4 +78,14 @@ public class creadoraDeColumnas : MonoBehaviour
 		columnasGuardadas.Add (columna);
 
 	}
+
+    public void pararColumnas(){
+        for (int i = 0; i < columnasActivasActualmente; i++)
+        {
+            GameObject clon = columnasGuardadas[i];
+            columna2d = clon.GetComponent<Rigidbody2D>();
+            columna2d.velocity = new Vector2(0, 0);
+        }
+        columnasActivasMaximas = 0;
+    }
 }
