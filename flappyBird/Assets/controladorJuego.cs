@@ -32,6 +32,12 @@ public class controladorJuego : MonoBehaviour
 	bool creadoraColumnas = false;
 	bool creadoraNubes = true;
 
+	//cambiar o no de fondo
+	public static int numeroFondo = 0;
+	public GameObject fondoAzul;
+	public GameObject fondoNaranja;
+	public GameObject fondoOscuro;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -39,15 +45,35 @@ public class controladorJuego : MonoBehaviour
 		if (instancia == null) {
 			instancia = this;
 		}
-
+		numeroFondo = PlayerPrefs.GetInt ("ValorFondo");
+		//poner el fondo elegido
+		switch (numeroFondo) {
+		case 0:		
+			fondoAzul.SetActive (true);
+			fondoNaranja.SetActive (false);
+			fondoOscuro.SetActive (false);
+			break;
+		case 1: 
+			fondoAzul.SetActive (false);
+			fondoNaranja.SetActive (true);
+			fondoOscuro.SetActive (false);
+			break;
+		case 2:
+			fondoAzul.SetActive (false);
+			fondoNaranja.SetActive (false);
+			fondoOscuro.SetActive (true);
+			break;
+		}
 		scoreTexto.text = "Score: " + score;
+
+		//que no se vean textos no necesarios
 		gameOverText.enabled = false;
 		botonReinicio.enabled = false;
 		botonMenu.enabled = false;
 
-
-		botonMenu.transform.position = new Vector2(3.0994e-05f, -212f);
-		botonReinicio.transform.position = new Vector2(0f, -212f);
+		//botones para que no se vean
+		botonMenu.transform.position = new Vector2 (0f, -212f);
+		botonReinicio.transform.position = new Vector2 (0f, -212f);
 	}
 
 	//poner a 60 fps el juego
@@ -115,8 +141,18 @@ public class controladorJuego : MonoBehaviour
 		botonMenu.enabled = true;
 		botonReinicio.enabled = true;
 
-		botonMenu.transform.position = new Vector2(0, 0);
-		botonReinicio.transform.position = new Vector2(0, -1f);
+		botonMenu.transform.position = new Vector2 (0, 0);
+		botonReinicio.transform.position = new Vector2 (0, -1f);
+
+		/*//puntuacion maxima
+		if (PlayerPrefs.GetInt ("Score") == 0 || PlayerPrefs.GetInt ("Score") == null) {
+		
+			PlayerPrefs.SetInt ("Score", (int)score);
+		
+		} else if (PlayerPrefs.GetInt ("Score") < (int)score) {
+		
+			PlayerPrefs.SetInt ("Score", (int)score);
+		}*/
 
 	}
 
@@ -128,5 +164,8 @@ public class controladorJuego : MonoBehaviour
 	public void volverAlMenu ()
 	{
 		SceneManager.LoadScene (0);
+		PlayerPrefs.SetInt ("ValorFondo", numeroFondo);
 	}
+
+
 }
