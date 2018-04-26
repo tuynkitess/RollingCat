@@ -22,7 +22,8 @@ public class controladorJuego : MonoBehaviour
 	public Text inicioText;
 	public Text scoreTexto;
 	public Text gameOverText;
-	public Text reinicioText;
+	public Button botonReinicio;
+	public Button botonMenu;
 	float score = 0;
 
 	//juego activo o no
@@ -38,9 +39,15 @@ public class controladorJuego : MonoBehaviour
 		if (instancia == null) {
 			instancia = this;
 		}
+
 		scoreTexto.text = "Score: " + score;
 		gameOverText.enabled = false;
-		reinicioText.enabled = false;
+		botonReinicio.enabled = false;
+		botonMenu.enabled = false;
+
+
+		botonMenu.transform.position = new Vector2(3.0994e-05f, -212f);
+		botonReinicio.transform.position = new Vector2(0f, -212f);
 	}
 
 	//poner a 60 fps el juego
@@ -84,9 +91,9 @@ public class controladorJuego : MonoBehaviour
 		//gato muerto, reiniciar
 		if (gatoMuerto) {
 			//recargar
-			if (Input.GetMouseButtonDown (0)) {
-				SceneManager.LoadScene (0);
-			}
+			/*if (Input.GetMouseButtonDown (0)) {
+				SceneManager.LoadScene (1);
+			}*/
 		}
 
 	}
@@ -105,6 +112,21 @@ public class controladorJuego : MonoBehaviour
 		pararSuelos.instancia.parar ();
 		//gato.velocity = Vector3.zero;
 		gameOverText.enabled = true;
-		reinicioText.enabled = true;
+		botonMenu.enabled = true;
+		botonReinicio.enabled = true;
+
+		botonMenu.transform.position = new Vector2(0, 0);
+		botonReinicio.transform.position = new Vector2(0, -1f);
+
+	}
+
+	public void reiniciarJuego ()
+	{
+		SceneManager.LoadScene (1);
+	}
+
+	public void volverAlMenu ()
+	{
+		SceneManager.LoadScene (0);
 	}
 }

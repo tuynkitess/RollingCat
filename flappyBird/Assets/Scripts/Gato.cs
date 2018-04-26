@@ -29,7 +29,7 @@ public class Gato : MonoBehaviour
 		forwardRotation = Quaternion.Euler (0, 0, 35);
 
 		animador = GetComponent<Animator> ();
-		animador.SetTrigger ("Normal");
+		animador.SetTrigger ("BucleJet");
 
 	}
 	
@@ -38,7 +38,7 @@ public class Gato : MonoBehaviour
 	{
 		//volver a poner el gato en animacion normal
 		tiempoAnim -= Time.fixedDeltaTime;
-		if (tiempoAnim < 0) { 
+		if (tiempoAnim < 0 && controladorJuego.instancia.juegoActivo) { 
 			animador.SetTrigger ("Normal");
 			tiempoAnim = -1f;
 		}
